@@ -1,0 +1,175 @@
+$text-Height: 11vw;
+.Slider {
+  &-content {
+    margin-top: 2vw;
+    position: relative;
+    //background-color: rgba(0, 0, 0, 0.377);
+  }
+  &-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 48vw;
+    overflow: hidden;
+    //background-color: rgba(56, 5, 24, 0.466);
+    background-image: linear-gradient(180deg, #001148 50%, #08377c 100%); //渐变颜色
+    img {
+      margin-top: 2.5vw;
+      height: 95vw;
+      width: 95vw;
+    }
+  }
+  &-content2 {
+    width: 80vw;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0%);
+    // background-color: pink;
+    // z-index: 1;
+    margin-top: -($text-Height+8vw);
+  }
+  &-textHeader{
+    margin-top: -20vw;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0%);
+    color: rgba(255, 255, 255, 0.945);
+    font-size: 2rem;
+  }
+  @keyframes move {
+    from {
+      top: 0px;
+    }
+    to {
+      top: 50px;
+    }
+  }
+  &-text {
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,0%);
+    display: flex;
+    color: rgba(255, 255, 255, 0.945);
+   margin-top:  -$text-Height;
+    height: $text-Height;
+    width: 70vw;
+  
+    // &:hover {
+    //   animation: 2s move;
+    // }
+    &-right {
+      margin-top: 1rem;
+      width: 12vw;
+      font-size: 3.8vw;
+
+      // &:hover {
+      //   animation: 2s move;
+      // }
+    }
+    &-left {
+      flex: 1;
+      font-size: 1.5vw;
+      color: rgba(255, 255, 255, 0.863);
+    }
+  }
+
+  &-bar {
+    position: absolute;
+    height: 4px;
+    width: 80vw;
+    border-radius: 30px;
+    background-color: #2447bb;
+    // &:hover{
+    //     animation:2s move ;
+    // }
+    margin-top: ($text-Height);
+  }
+  &-active-bar {
+    position: absolute;
+    height: 6px;
+    width: 0.8vw;
+    border-radius: 1px;
+    background-image: linear-gradient(90deg, #071e68 20%, rgb(8, 224, 253) 100%); //渐变颜色
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: All 0.4s;
+  }
+  &-point {
+    position: absolute;
+    display: inline-block;
+    // visibility: hidden;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    //background-color: rgba(255, 255, 255, 0.747);
+    background-image: radial-gradient(#0c2472, rgb(113, 202, 214));
+
+    transform: translate(-50%, -50%);
+    transition: All 0.8s;
+    z-index: 3;
+
+    &.isHover {
+      transform: translate(-50%, -50%) scale(1.5);
+      transition: All 1s;
+      background-image: radial-gradient(#071e68 , #08f5fd);
+      //border:  solid rgb(8, 224, 253);
+    }
+  }
+  &-bottomYearItem {
+    position: absolute;
+    display: inline-block;
+    // height: 16px;
+    // width: 16px;
+    margin-top: 30px;
+    font-size: 28px;
+    transform: translate(-50%, -40%);
+    color: #9aace7;
+
+    &.isHover {
+      transform: translate(-50%, -45%) scale(1.1, 1.1);
+      transition: All 0.5s;
+      color: #fffffff8;
+    }
+  }
+  @keyframes loading {
+    to {
+      background-position-y:100% ;
+    }
+  }
+  &-animationLight{
+    position: absolute;
+    display: inline-block;
+    background: linear-gradient(180deg,
+    rgba(255,255,255,0)45%,
+    rgba(255,255,255,.5)50%,
+    rgba(255,255,255,0)55%,
+    );
+    background-size: 100% 300%;
+    background-position-y:0%;
+    animation: 3s loading ease-in-out infinite;
+    height: 7vw;
+    width: 0.08vw;
+
+    margin-top: -7vw;
+    visibility: hidden;
+    &.isHover {
+      visibility: visible;
+    }
+    
+  }
+  &-light{
+    position: absolute;
+    display: inline-block;
+    background: linear-gradient(0deg, #08affdde , rgba(8, 224, 253, 0.034) ); //渐变颜色
+    height: 7vw;
+    width: 0.08vw;
+    margin-top: -7vw;
+    visibility: hidden;
+    &.isHover {
+      visibility: visible;
+    }
+    
+  }
+ 
+}
